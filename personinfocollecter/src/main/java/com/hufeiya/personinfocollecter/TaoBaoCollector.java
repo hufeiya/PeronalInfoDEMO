@@ -38,28 +38,6 @@ public class TaoBaoCollector implements Collector{
         webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
     }
 
-    final class MyWebViewClient extends WebViewClient {
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (url.startsWith("http:") || url.startsWith("https:")) {
-                return false;
-            }
-            return true;
-        }
-
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            Log.d("WebView", "onPageStarted");
-            super.onPageStarted(view, url, favicon);
-        }
-
-        public void onPageFinished(WebView view, String url) {
-            Log.d("WebView", "onPageFinished ");
-            view.loadUrl("javascript:window.local_obj.showSource('<head>'+" +
-                    "document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-            super.onPageFinished(view, url);
-        }
-    }
-
-
     class InJavaScriptLocalObj {
         @JavascriptInterface
         public void showSource(String html) {
