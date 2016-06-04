@@ -6,18 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hufeiya.taobaodemo.dummy.DummyContent;
-import com.hufeiya.taobaodemo.dummy.DummyContent.DummyItem;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import com.hufeiya.personinfocollecter.beans.PersonalInfo;
 
 import java.util.List;
 
@@ -59,7 +52,6 @@ public class ItemFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        parseHtml();
     }
 
     @Override
@@ -76,25 +68,13 @@ public class ItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            List<PersonalInfo> personalInfoList = getArguments().getParcelableArrayList("personalInfoList");
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(personalInfoList, mListener));
         }
         return view;
     }
 
-    private void parseHtml(){
-        DummyContent.ITEMS.clear();
-        Document document = Jsoup.parse(getArguments().getString("html"));
-        Elements liElements = document.getElementById("addressList").getElementsByTag("li");
-        for(Element li : liElements){
-            Log.d("fuck",li.text());
-            DummyItem item = new DummyItem();
-            item.name = li.select("label[name=user-name]").text();
-            item.phone = li.select("label[name=phone-num]").text();
-            item.address = li.select("label[name=address]").text();
-            DummyContent.ITEMS.add(item);
-        }
 
-    }
 
 
     @Override
@@ -126,6 +106,6 @@ public class ItemFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(PersonalInfo item);
     }
 }
