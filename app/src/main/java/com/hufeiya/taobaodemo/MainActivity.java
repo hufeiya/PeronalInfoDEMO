@@ -1,42 +1,37 @@
 package com.hufeiya.taobaodemo;
 
-import android.os.Parcelable;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.webkit.WebView;
-import com.hufeiya.personinfocollecter.Collector;
-import com.hufeiya.personinfocollecter.TaoBaoCollector;
-import com.hufeiya.personinfocollecter.beans.PersonalInfo;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener {
+import static com.hufeiya.taobaodemo.AppName.*;
 
-    private WebView webView;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Button taobao;
+    private Button jd;
+    private Button meituan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        webView = (WebView) findViewById(R.id.web_view);
-        Collector collector = new TaoBaoCollector(webView);
-        collector.startCollection(new Collector.OnCollectedListener() {
-            @Override
-            public void onCollectedInfo(List<PersonalInfo> personalInfoList) {
-                Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList("personalInfoList",(ArrayList<? extends Parcelable>)personalInfoList);
-                ItemFragment fragment = ItemFragment.newInstance(1);
-                fragment.setArguments(bundle);
-                getFragmentManager().beginTransaction().replace(R.id.fragment_replace, fragment).commit();
-            }
-        });
+        taobao = (Button)findViewById(R.id.taobao);
+        jd = (Button)findViewById(R.id.jd);
+        meituan = (Button)findViewById(R.id.meituan);
+        taobao.setTag(TAOBAO);
+        jd.setTag(JINGDONG);
+        meituan.setTag(MEITUAN);
+        taobao.setOnClickListener(this);
+        jd.setOnClickListener(this);
+        meituan.setOnClickListener(this);
     }
 
     @Override
-    public void onListFragmentInteraction(PersonalInfo item) {
-
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this,WebActivity.class);
+        intent.putExtra("AppName",(int)v.getTag());
+        startActivity(intent);
     }
-
-
-
 }

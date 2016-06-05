@@ -5,16 +5,34 @@
     android:layout_height="match_parent"
     tools:context="com.hufeiya.taobaodemo.MainActivity">
 
-    <WebView
-        android:id="@+id/web_view"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </WebView>
-    <FrameLayout
-        android:id="@+id/fragment_replace"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/taobao"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="淘宝"
+                android:textSize="20sp"/>
+            <Button
+                android:id="@+id/jd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="京东"
+                android:textSize="20sp"/>
+            <Button
+                android:id="@+id/meituan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="美团"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
