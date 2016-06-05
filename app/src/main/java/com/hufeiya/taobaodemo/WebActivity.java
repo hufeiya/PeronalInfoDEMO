@@ -3,9 +3,12 @@ package com.hufeiya.taobaodemo;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 
 import com.hufeiya.personinfocollecter.Collector;
+import com.hufeiya.personinfocollecter.JDCollector;
+import com.hufeiya.personinfocollecter.MeiTuanCollector;
 import com.hufeiya.personinfocollecter.TaoBaoCollector;
 import com.hufeiya.personinfocollecter.beans.PersonalInfo;
 
@@ -20,6 +23,7 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
     private Collector.OnCollectedListener listener = new Collector.OnCollectedListener() {
         @Override
         public void onCollectedInfo(List<PersonalInfo> personalInfoList) {
+            Log.d("WebActivity","starting ItemFragment...");
             Bundle bundle = new Bundle();
             bundle.putParcelableArrayList("personalInfoList",(ArrayList<? extends Parcelable>)personalInfoList);
             ItemFragment fragment = ItemFragment.newInstance(1);
@@ -38,6 +42,12 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
         switch (appName){
             case TAOBAO:
                collector = new TaoBaoCollector(webView);
+                break;
+            case JINGDONG:
+                collector = new JDCollector(webView);
+                break;
+            case MEITUAN:
+                collector = new MeiTuanCollector(webView);
                 break;
         }
         if (collector != null){
