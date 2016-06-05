@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 /**
  * Created by hufeiya on 16/6/4.
+ * A POJO to save the personal information.
  */
 public class PersonalInfo implements Parcelable {
     private String name;
@@ -15,6 +16,12 @@ public class PersonalInfo implements Parcelable {
 
     }
 
+    /**
+     * Full constructor.
+     * @param name  The person's name.
+     * @param phone phone number.
+     * @param address   address.
+     */
     public PersonalInfo(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;

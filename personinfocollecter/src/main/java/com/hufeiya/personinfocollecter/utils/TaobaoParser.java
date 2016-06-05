@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hufeiya on 16/6/4.
+ * Created by hufeiya on 16/6/4.<br />
+ * Parse html from Tao Bao to {@link PersonalInfo} List.
  */
 public class TaobaoParser implements Parser {
     @Override
