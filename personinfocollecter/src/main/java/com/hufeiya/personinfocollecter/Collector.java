@@ -27,6 +27,12 @@ public interface Collector {
          * @param personalInfoList The result of personal information in this collection.
          */
         void onCollectedInfo(List<PersonalInfo> personalInfoList);
+
+        /**
+         * This method iscalled from your current thread when the collection is processing mail info.
+         * This time you can hide the webview.
+         */
+        void onProcessMailInfo(int pageNum);
     }
 
 }

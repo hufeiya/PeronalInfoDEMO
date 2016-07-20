@@ -1,0 +1,38 @@
+package com.hufeiya.personinfocollecter.utils.mail;
+
+import android.util.Log;
+
+import com.hufeiya.personinfocollecter.beans.PersonalInfo;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * Created by hufeiya on 16-7-20.
+ */
+public class QQMailParser implements MailParser {
+
+    private static final String TAG = "QQMailParser";
+
+    public String getHref(String html, String keyword) {
+        Document document = Jsoup.parse(html);
+        return document.select("a:contains(" + keyword + ")").get(0).attr("href");
+    }
+
+    public String getHrefById(String html,String id){
+        Document document = Jsoup.parse(html);
+        return document.getElementById(id).attr("href");
+    }
+    public String getSidFromline(String line) {
+        Pattern sidEndWithQuato = Pattern.compile("sid=\\w*,");
+        return null;
+    }
+
+}

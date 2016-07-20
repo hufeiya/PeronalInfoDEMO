@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile project(':personinfocollecter')
+    compile 'ch.halcyon:squareprogressbar:1.6.0'
 }

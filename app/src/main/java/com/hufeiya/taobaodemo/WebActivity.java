@@ -4,10 +4,15 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.hufeiya.personinfocollecter.Collector;
 import com.hufeiya.personinfocollecter.JDCollector;
+import com.hufeiya.personinfocollecter.MailCollector;
 import com.hufeiya.personinfocollecter.MeiTuanCollector;
 import com.hufeiya.personinfocollecter.TaoBaoCollector;
 import com.hufeiya.personinfocollecter.beans.PersonalInfo;
@@ -20,6 +25,9 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
 
     private WebView webView;
     private int appName;
+    private FrameLayout frameLayout;
+    private ProgressBar progressBar;
+    private TextView loadingDiscription;
     private Collector.OnCollectedListener listener = new Collector.OnCollectedListener() {
         @Override
         public void onCollectedInfo(List<PersonalInfo> personalInfoList) {
@@ -30,6 +38,13 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
             fragment.setArguments(bundle);
             getFragmentManager().beginTransaction().replace(R.id.fragment_replace, fragment).commit();
         }
+
+        @Override
+        public void onProcessMailInfo(int pageNum) {
+            frameLayout.setVisibility(View.VISIBLE);
+            progressBar.setProgress(pageNum);
+            loadingDiscription.setText("当前读取第" + pageNum + "页邮件");
+        }
     };
 
     @Override
@@ -38,6 +53,10 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
         setContentView(R.layout.activity_web);
         appName =  getIntent().getIntExtra("AppName",TAOBAO);
         webView = (WebView) findViewById(R.id.web_view);
+        frameLayout = (FrameLayout)findViewById(R.id.fragment_replace);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(100);
+        loadingDiscription = (TextView)findViewById(R.id.loading_discription);
         Collector collector = null;
         switch (appName){
             case TAOBAO:
@@ -48,6 +67,9 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
                 break;
             case MEITUAN:
                 collector = new MeiTuanCollector(webView);
+                break;
+            case MAIL:
+                collector = new MailCollector(webView);
                 break;
         }
         if (collector != null){

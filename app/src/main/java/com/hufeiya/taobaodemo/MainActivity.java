@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button taobao;
     private Button jd;
     private Button meituan;
+    private Button mail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +21,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         taobao = (Button)findViewById(R.id.taobao);
         jd = (Button)findViewById(R.id.jd);
         meituan = (Button)findViewById(R.id.meituan);
+        mail = (Button)findViewById(R.id.mail);
         taobao.setTag(TAOBAO);
         jd.setTag(JINGDONG);
         meituan.setTag(MEITUAN);
+        mail.setTag(MAIL);
         taobao.setOnClickListener(this);
         jd.setOnClickListener(this);
         meituan.setOnClickListener(this);
+        mail.setOnClickListener(this);
     }
 
     @Override
