@@ -14,6 +14,7 @@ import com.hufeiya.personinfocollecter.Collector;
 import com.hufeiya.personinfocollecter.JDCollector;
 import com.hufeiya.personinfocollecter.MailCollector;
 import com.hufeiya.personinfocollecter.MeiTuanCollector;
+import com.hufeiya.personinfocollecter.QQMailCollector;
 import com.hufeiya.personinfocollecter.TaoBaoCollector;
 import com.hufeiya.personinfocollecter.beans.PersonalInfo;
 
@@ -69,7 +70,7 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
                 collector = new MeiTuanCollector(webView);
                 break;
             case MAIL:
-                collector = new MailCollector(webView);
+                collector = new QQMailCollector(webView);
                 break;
         }
         if (collector != null){

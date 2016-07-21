@@ -42,7 +42,7 @@ public class TaoBaoCollector implements Collector{
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new MyWebViewClient());
 
-        webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
+        //webView.addJavascriptInterface(new InJavaScriptLocalObj(), "local_obj");
     }
 
     class InJavaScriptLocalObj {
@@ -71,7 +71,7 @@ public class TaoBaoCollector implements Collector{
 
     @Override
     public void startCollection(OnCollectedListener listener) {
-        webView.loadUrl("https://h5.m.taobao.com/awp/mtb/mtb.htm");
+        webView.loadUrl("https://mbs.boc.cn");
         onCollectedListener = listener;
     }
 }
