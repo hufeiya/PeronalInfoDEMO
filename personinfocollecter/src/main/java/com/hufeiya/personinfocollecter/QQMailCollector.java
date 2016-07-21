@@ -85,8 +85,9 @@ public class QQMailCollector implements Collector{
                        // String fuck = "{\"fuck\":[" + raw.substring(1,raw.length()-1) + "]}";
                         //Log.d("fuck","拼的json:" + fuck);
                         QQMailJson qqMailJson = gson.fromJson(raw,QQMailJson.class);
-                        if (qqMailJson.getSubj() != null){
-                            Log.d("fuck","sss" + qqMailJson.getSubj());
+                        if (qqMailJson.getInf().getSubj() != null){
+                            Log.d("fuck","邮件标题：" + qqMailJson.getInf().getSubj());
+                            Log.d("fuck","发件人：" + qqMailJson.getInf().getFrom().getAddr());
                         }
 
                     }

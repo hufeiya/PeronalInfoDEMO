@@ -8,178 +8,170 @@ import java.util.List;
 public class QQMailJson {
 
     /**
-     * id : ZC1615-mFKwJIt1Ijq9MyJ1zTAoN67
+     * id : ZC2614-R417Mp3bOCCncGE2oUtkK67
      * fid : 1
-     * subj : 阿迪气质明星款，穿上正当时（AD）
-     * abs : 作为运动品牌界的“科技公司”，耐克和阿迪达斯时不时都会推出一些与前沿科技结合的新品。为了让定制跑鞋
-     * date : 1468530401
-     * UTC : 1468530401
+     * subj : 阿里云备案信息公安备案通知
+     * abs : 首页 产品服务 备案专区 管理控制台 用户中心 帮助中心 尊敬的用户，您好： 阿里云接到公安部门关于网站
+     * date : 1468483318
+     * UTC : 1468483318
      * xqqstyle :
-     * from : {"uin":"-1810392992","name":"阿迪达斯NMD","addr":"winter@poster.addysmall.com"}
+     * from : {"uin":"-1810392992","name":"阿里云计算","addr":"system@notice.aliyun.com"}
      * toLst : [{"uin":"-1810392992","name":"a4188","addr":"a4188@qq.com"}]
      * tagLst : []
      */
 
-    private String id;
-    private String fid;
-    private String subj;
-    private String abs;
-    private int date;
-    private int UTC;
-    private String xqqstyle;
+    private InfBean inf;
     /**
-     * uin : -1810392992
-     * name : 阿迪达斯NMD
-     * addr : winter@poster.addysmall.com
+     * stamp : 01
      */
 
-    private FromBean from;
-    /**
-     * uin : -1810392992
-     * name : a4188
-     * addr : a4188@qq.com
-     */
+    private IdxBean idx;
 
-    private List<ToLstBean> toLst;
-    private List<?> tagLst;
-
-    public String getId() {
-        return id;
+    public InfBean getInf() {
+        return inf;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setInf(InfBean inf) {
+        this.inf = inf;
     }
 
-    public String getFid() {
-        return fid;
+    public IdxBean getIdx() {
+        return idx;
     }
 
-    public void setFid(String fid) {
-        this.fid = fid;
+    public void setIdx(IdxBean idx) {
+        this.idx = idx;
     }
 
-    public String getSubj() {
-        return subj;
-    }
+    public static class InfBean {
+        private String id;
+        private String fid;
+        private String subj;
+        private String abs;
+        private int date;
+        private int UTC;
+        private String xqqstyle;
+        /**
+         * uin : -1810392992
+         * name : 阿里云计算
+         * addr : system@notice.aliyun.com
+         */
 
-    public void setSubj(String subj) {
-        this.subj = subj;
-    }
+        private FromBean from;
+        private List<?> tagLst;
 
-    public String getAbs() {
-        return abs;
-    }
-
-    public void setAbs(String abs) {
-        this.abs = abs;
-    }
-
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
-    }
-
-    public int getUTC() {
-        return UTC;
-    }
-
-    public void setUTC(int UTC) {
-        this.UTC = UTC;
-    }
-
-    public String getXqqstyle() {
-        return xqqstyle;
-    }
-
-    public void setXqqstyle(String xqqstyle) {
-        this.xqqstyle = xqqstyle;
-    }
-
-    public FromBean getFrom() {
-        return from;
-    }
-
-    public void setFrom(FromBean from) {
-        this.from = from;
-    }
-
-    public List<ToLstBean> getToLst() {
-        return toLst;
-    }
-
-    public void setToLst(List<ToLstBean> toLst) {
-        this.toLst = toLst;
-    }
-
-    public List<?> getTagLst() {
-        return tagLst;
-    }
-
-    public void setTagLst(List<?> tagLst) {
-        this.tagLst = tagLst;
-    }
-
-    public static class FromBean {
-        private String uin;
-        private String name;
-        private String addr;
-
-        public String getUin() {
-            return uin;
+        public String getId() {
+            return id;
         }
 
-        public void setUin(String uin) {
-            this.uin = uin;
+        public void setId(String id) {
+            this.id = id;
         }
 
-        public String getName() {
-            return name;
+        public String getFid() {
+            return fid;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setFid(String fid) {
+            this.fid = fid;
         }
 
-        public String getAddr() {
-            return addr;
+        public String getSubj() {
+            return subj;
         }
 
-        public void setAddr(String addr) {
-            this.addr = addr;
+        public void setSubj(String subj) {
+            this.subj = subj;
+        }
+
+        public String getAbs() {
+            return abs;
+        }
+
+        public void setAbs(String abs) {
+            this.abs = abs;
+        }
+
+        public int getDate() {
+            return date;
+        }
+
+        public void setDate(int date) {
+            this.date = date;
+        }
+
+        public int getUTC() {
+            return UTC;
+        }
+
+        public void setUTC(int UTC) {
+            this.UTC = UTC;
+        }
+
+        public String getXqqstyle() {
+            return xqqstyle;
+        }
+
+        public void setXqqstyle(String xqqstyle) {
+            this.xqqstyle = xqqstyle;
+        }
+
+        public FromBean getFrom() {
+            return from;
+        }
+
+        public void setFrom(FromBean from) {
+            this.from = from;
+        }
+
+        public List<?> getTagLst() {
+            return tagLst;
+        }
+
+        public void setTagLst(List<?> tagLst) {
+            this.tagLst = tagLst;
+        }
+
+        public static class FromBean {
+            private String uin;
+            private String name;
+            private String addr;
+
+            public String getUin() {
+                return uin;
+            }
+
+            public void setUin(String uin) {
+                this.uin = uin;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getAddr() {
+                return addr;
+            }
+
+            public void setAddr(String addr) {
+                this.addr = addr;
+            }
         }
     }
 
-    public static class ToLstBean {
-        private String uin;
-        private String name;
-        private String addr;
+    public static class IdxBean {
+        private String stamp;
 
-        public String getUin() {
-            return uin;
+        public String getStamp() {
+            return stamp;
         }
 
-        public void setUin(String uin) {
-            this.uin = uin;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getAddr() {
-            return addr;
-        }
-
-        public void setAddr(String addr) {
-            this.addr = addr;
+        public void setStamp(String stamp) {
+            this.stamp = stamp;
         }
     }
 }
