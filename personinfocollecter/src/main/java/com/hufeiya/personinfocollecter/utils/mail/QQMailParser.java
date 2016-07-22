@@ -30,9 +30,20 @@ public class QQMailParser implements MailParser {
         Document document = Jsoup.parse(html);
         return document.getElementById(id).attr("href");
     }
-    public String getSidFromline(String line) {
-        Pattern sidEndWithQuato = Pattern.compile("sid=\\w*,");
-        return null;
+
+    public String getSidFromURL(String url){
+        int start = url.indexOf("sid");
+        if(start == -1){
+            return null;
+        }
+        int end = start;
+        for(int i = start;i < url.length();i++){
+            if(url.charAt(i) == '&'){
+                end = i;
+                break;
+            }
+        }
+        return url.substring(start+4,end);
     }
 
 }

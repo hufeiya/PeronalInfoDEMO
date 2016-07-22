@@ -15,8 +15,12 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.hufeiya.personinfocollecter.beans.QQMailJson;
 import com.hufeiya.personinfocollecter.utils.TaobaoParser;
 import com.hufeiya.personinfocollecter.utils.mail.QQMailParser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hufeiya on 16/6/4.
