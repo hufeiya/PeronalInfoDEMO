@@ -41,8 +41,42 @@
                 android:layout_below="@+id/loading_discription"
                 android:layout_centerHorizontal="true"/>
         </RelativeLayout>
-
-
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/xuexin_frame"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:alpha=".7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <AutoCompleteTextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="学信网帐号"/>
+            <AutoCompleteTextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="密码" />
+            <AutoCompleteTextView
+                android:id="@+id/vertify_code_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="验证码(选填)"/>
+            <ImageView
+                android:id="@+id/vertify_code_image"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/login"
+                android:text="登录"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </FrameLayout>
 </RelativeLayout>

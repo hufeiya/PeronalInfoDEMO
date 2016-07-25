@@ -33,6 +33,10 @@ public interface Collector {
          * This time you can hide the webview.
          */
         void onProcessMailInfo(int pageNum);
+
+        void onGotImageURL(String url);
+
+        void onGotCookies(String cookies);
     }
 
 }
