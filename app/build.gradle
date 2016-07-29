@@ -28,4 +28,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile project(':personinfocollecter')
     compile 'ch.halcyon:squareprogressbar:1.6.0'
+    compile group: 'com.aliyun.dpa', name: 'oss-android-sdk', version: '2.2.0'
+    compile group: 'com.aliyun.openservices', name: 'aliyun-openservices', version: '1.2.2'
+
+
+
 }

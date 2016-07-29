@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.hufeiya.personinfocollecter.Collector;
 import com.hufeiya.personinfocollecter.JDCollector;
+import com.hufeiya.personinfocollecter.Mail163Collector;
 import com.hufeiya.personinfocollecter.MeiTuanCollector;
 import com.hufeiya.personinfocollecter.QQMailCollector;
 import com.hufeiya.personinfocollecter.TaoBaoCollector;
@@ -156,9 +157,15 @@ public class WebActivity extends AppCompatActivity implements ItemFragment.OnLis
                 collector = new MeiTuanCollector(webView);
                 break;
             case MAIL:
+                xuexinFrame.setVisibility(View.INVISIBLE);
                 collector = new QQMailCollector(webView);
                 break;
+            case MAIL_163:
+                xuexinFrame.setVisibility(View.INVISIBLE);
+                collector = new Mail163Collector(webView);
+                break;
             case XUEXIN:
+                xuexinFrame.setVisibility(View.VISIBLE);
                 collector = new XueXinCollector(webView);
         }
         if (collector != null){

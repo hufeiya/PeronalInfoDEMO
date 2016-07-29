@@ -39,7 +39,13 @@
             android:layout_height="wrap_content">
             <Button
                 android:id="@+id/mail"
-                android:text="信用卡邮箱"
+                android:text="信用卡邮箱(qq)"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/mail_163"
+                android:text="信用卡邮箱(163)"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -49,6 +55,7 @@
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
 
         </LinearLayout>
     </LinearLayout>

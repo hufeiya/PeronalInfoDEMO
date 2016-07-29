@@ -28,6 +28,7 @@ public class XueXinCollector implements Collector{
     private boolean isFirstLoad = true;
     private static final int SEND_IMAGE_URL = 666;
     private static final int SEND_COOKIES = 667;
+    private static final int SEND_MESSAGE_DONE = 668;
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -35,9 +36,13 @@ public class XueXinCollector implements Collector{
                 case SEND_IMAGE_URL:
                     String url = msg.getData().getString("image");
                     listener.onGotImageURL(url);
-                    break;
+                    return true;
                 case SEND_COOKIES:
                     listener.onGotCookies(cookies);
+                    return true;
+                case SEND_MESSAGE_DONE:
+
+                    return true;
             }
             return false;
         }
@@ -114,6 +119,7 @@ public class XueXinCollector implements Collector{
                     @Override
                     public void run() {
                         Log.d("fuck","正在获取验证码焦点");
+                        webView.setFocusable(true);
                         webView.loadUrl("javascript:document.getElementById(\"captcha\").focus();");
                     }
                 });

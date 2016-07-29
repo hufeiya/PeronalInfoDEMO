@@ -10,4 +10,5 @@ public class AppName {
     public static final int ELEME = 3;
     public static final int MAIL = 4;
     public static final int XUEXIN = 5;
+    public static final int MAIL_163 = 6;
 }
